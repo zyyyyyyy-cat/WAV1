@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#091e23" />
+<meta name="description" content="MINER: Modeling Inter- and Intra-Person Variance for Reidentification. WACV 2027 paper, demo, method, and model weights." />
+<meta property="og:title" content="MINER — WACV 2027" />
+<meta property="og:description" content="Recognize the person, not the clothes. Variance-aware hard mining with an analytic online controller." />
+<meta property="og:url" content="https://oronnir.github.io/MINER/" />
+<meta property="og:type" content="website" />
+<title>MINER — WACV 2027</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#091e23;--night:#102e31;--pine:#163d3b;--mint:#bdf4a0;--teal:#0d7966;--ink:#10272b;--muted:#5c7472;--stroke:#d9e6de;--bg:#f7f8f5;--shell:1140px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.72 'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}button{font:inherit}h1,h2,h3{font-family:Manrope,system-ui,sans-serif;letter-spacing:-.057em;line-height:1.13;margin:0}p{margin:0 0 17px}.container{max-width:var(--shell);width:calc(100% - 64px);margin:0 auto}
+nav{position:sticky;top:0;z-index:15;background:rgba(7,28,33,.96);color:#eaf8ef;border-bottom:1px solid #27484b;backdrop-filter:blur(14px)}.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:70px}.brand{display:inline-flex;align-items:center;gap:10px;font:800 19px Manrope,sans-serif;letter-spacing:-.08em}.brand img{height:34px;width:34px;object-fit:contain}.brand b{color:var(--mint)}.navlinks{display:flex;gap:30px;align-items:center;font-size:12px;color:#acc9c3;font-weight:700}.navlinks a:hover{color:var(--mint)}.pill{white-space:nowrap;padding:7px 12px;border:1px solid #557e72;border-radius:100px;font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--mint)}
+.hero{background:radial-gradient(ellipse at 78% 28%,#1d4743,transparent 49%),linear-gradient(140deg,#081920,#0e2c30 73%,#123e39);color:#fff;overflow:hidden}.hero-main{display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;gap:70px;padding:92px 0 100px}.eyebrow{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.hero .eyebrow{color:var(--mint)}.hero h1{font-size:clamp(66px,7vw,111px);font-weight:800;margin:17px 0 18px}.hero h1 em{font-style:normal;color:var(--mint)}.hero .paper-title{font:600 clamp(24px,2.65vw,32px)/1.32 Manrope,sans-serif;letter-spacing:-.046em;margin-bottom:23px;color:#e0f1e9}.hero .sub{max-width:455px;color:#a2beb6;font-size:15px;line-height:1.8;margin-bottom:26px}.authors{font-size:13px;color:#d8e9e2;font-weight:700;line-height:1.7;margin-bottom:26px}.authors span{color:#81b3a8;padding:0 9px}.buttons{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 18px;border-radius:6px;font-size:12px;line-height:1.4;font-weight:800;min-height:46px;transition:transform .18s,background .18s}.btn:hover{transform:translateY(-2px)}.btn.paper{background:var(--mint);color:#092622}.btn.code{background:transparent;border:1px solid #587c75;color:#e1f2e9}.hero-video{min-width:0}.video-caption{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#a6c7bf;font-size:11px;margin-top:12px}.video-caption span{font-weight:800;color:#d6f2df}.video-frame{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;background:#0c2329;border-radius:13px;border:1px solid #56786c;box-shadow:0 30px 75px #0005}.video-frame iframe{display:block;width:100%;height:100%;border:0}
+.affiliations{background:#eef4ee;border-bottom:1px solid #dce7df}.affiliations-inner{min-height:114px;display:flex;align-items:center;gap:26px;justify-content:space-between}.affiliations small{font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#728d83;font-size:10px}.affiliations-logos{display:flex;align-items:center;justify-content:flex-end;gap:33px}.affiliations-logos img.canvas{height:88px;width:83px;object-fit:contain}.affiliations-logos img.microsoft{height:29px;width:145px;object-fit:contain}.sep{width:1px;height:37px;background:#d5e1d7}
+.section{padding:94px 0}.head{margin-bottom:41px}.head h2{font-size:clamp(31px,4.3vw,49px);margin-top:13px;margin-bottom:15px}.head p{color:var(--muted);max-width:730px;font-size:15px;line-height:1.85}.method-copy{display:grid;grid-template-columns:.67fr 1.33fr;gap:55px;align-items:start;margin-bottom:34px}.method-copy .eyebrow{display:block;margin-bottom:12px}.method-copy h2{font-size:clamp(31px,4vw,45px)}.method-copy .abstract{color:#546d69;font-size:14px;line-height:1.95}
+.panel{background:#fff;border:1px solid var(--stroke);border-radius:16px;overflow:hidden;box-shadow:0 12px 32px rgba(21,51,44,.03)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--stroke);padding:16px 24px;font-size:11px;font-weight:800;letter-spacing:.1em;color:#3e7165;text-transform:uppercase}.panel-head span:last-child{color:#7b9589}
+.mining-panel .content{padding:24px}.mining-topline{color:#476660;font-size:14px;line-height:1.8;margin:0 0 18px}.pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.pair-box{border:1px solid #d6e4dc;border-radius:14px;padding:18px;background:linear-gradient(180deg,#fcfefd,#f6fbf8)}.pair-label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.pair-label strong{font:800 16px Manrope,sans-serif;letter-spacing:-.02em}.pair-label span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6a8c7d}.pair-box.positive .pair-label strong{color:#0f7b69}.pair-box.negative .pair-label strong{color:#8b5c3a}.pair-row{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}.connector{font-size:12px;font-weight:800;letter-spacing:.06em;color:#628077;text-align:center}.person-card{border:1px solid #dce7df;border-radius:12px;background:linear-gradient(180deg,#183a42,#102b31);padding:10px 10px 11px;color:#fff;position:relative;min-width:0}.cam-tag{position:absolute;top:9px;right:9px;background:#dff6e1;color:#0d6a58;border-radius:100px;padding:3px 8px;font-size:9px;font-weight:800;letter-spacing:.06em}.portrait{height:116px;border-radius:10px;background:radial-gradient(circle at 50% 20%, rgba(255,255,255,.14), transparent 42%),linear-gradient(180deg,#29555c,#18353a);position:relative;overflow:hidden;margin-bottom:10px}.portrait:after{content:'';position:absolute;inset:auto 18px 10px 18px;height:14px;border-radius:8px;background:rgba(255,255,255,.06)}.head-shape{position:absolute;left:50%;top:22px;width:34px;height:39px;margin-left:-17px;border-radius:50% 50% 46% 46%;background:var(--skin,#efbb98)}.hair-shape{position:absolute;left:50%;top:18px;width:40px;height:20px;margin-left:-20px;border-radius:18px 18px 11px 11px;background:var(--hair,#1d242b)}.body-shape{position:absolute;left:50%;bottom:14px;width:86px;height:62px;margin-left:-43px;border-radius:26px 26px 12px 12px;background:var(--cloth,#8ed7bf)}.strap{position:absolute;bottom:16px;width:12px;height:42px;background:rgba(255,255,255,.1);border-radius:8px}.strap.left{left:26px}.strap.right{right:26px}.person-card b{display:block;font-size:13px;line-height:1.2;margin-bottom:3px}.person-card small{display:block;color:#b7d0ca;font-size:11px;line-height:1.4}.same{color:#9fe7bf}.similar{color:#f0c5a4}.pair-note{margin-top:12px;font-size:12px;color:#55726b;line-height:1.7}.mining-foot{margin-top:16px;padding-top:16px;border-top:1px solid #deebe3;color:#355f55;font-size:13px;line-height:1.75}.mining-foot b{color:#0d6b5a}
+.loss-panel{margin-top:18px}.loss-media{padding:18px;background:linear-gradient(180deg,#fcfefd,#f7fbf8)}.loss-media img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid #d8e4dd;box-shadow:0 10px 24px rgba(20,52,47,.03)}.loss-note{padding:0 24px 24px;color:#5c7670;font-size:12px;line-height:1.8}.loss-note strong{color:#124f46}
+.controller-panel{margin-top:18px}.controller-body{padding:24px}.controller-intro{font-size:14px;color:#496660;line-height:1.8;margin-bottom:18px}.tradeoff-strip{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin-bottom:18px}.trade-box{border-radius:12px;padding:16px 18px;background:#eff6f2;border:1px solid #dbe8df}.trade-box strong{display:block;font:800 17px Manrope,sans-serif;letter-spacing:-.02em;margin-bottom:6px}.trade-box small{display:block;font-size:12px;color:#5e7a72;line-height:1.6}.trade-box code{display:block;margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#0e6d5b;background:#fff;border:1px solid #d6e4dc;border-radius:6px;padding:7px 9px}.balance-mark{font-size:18px;font-weight:800;color:#187663;padding:0 4px}.controller-grid{display:grid;grid-template-columns:1.15fr .92fr .92fr;gap:16px}.control-box{border:1px solid #d9e6de;border-radius:12px;padding:17px;background:#fff}.control-box h3{font-size:18px;margin-bottom:10px}.control-box p{font-size:13px;color:#5d7871;line-height:1.72;margin-bottom:10px}.formula{display:block;padding:10px 12px;border-radius:10px;background:#f2f8f4;border:1px solid #dde9e2;color:#134b41;font-family:ui-monospace,Consolas,monospace;font-size:13px;line-height:1.65;white-space:pre-wrap}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.badge{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;background:#102e30;color:#d6efe2;font-size:11px;font-weight:800;letter-spacing:.04em}.controller-note{margin-top:16px;padding:16px 18px;border-radius:12px;background:#102e30;color:#d4eee2;font-size:13px;line-height:1.78}.controller-note b{color:var(--mint)}
+.analysis{background:#eaf1eb}.analysis .head{margin-bottom:22px}.analysis .headline{display:flex;gap:28px;align-items:end;justify-content:space-between;flex-wrap:wrap}.analysis .headline .head{margin-bottom:22px}.analysis .explain{font-size:13px;color:#496b5e;max-width:365px;margin:0 0 22px}.summary-strip{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:14px;margin-bottom:18px}.summary-card{background:#fff;border:1px solid #d3e3d8;border-radius:12px;padding:16px 18px}.summary-card strong{display:block;font:800 16px Manrope,sans-serif;margin-bottom:7px}.summary-card p{font-size:12.5px;color:#5b756d;line-height:1.68;margin:0}.summary-card code{display:block;margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#0e6d5b;background:#f5fbf6;border:1px solid #dbe7df;border-radius:6px;padding:7px 8px}.summary-card.highlight{background:#113234;color:#e5f6ee;border-color:#285154}.summary-card.highlight strong,.summary-card.highlight p,.summary-card.highlight code{color:inherit}.summary-card.highlight code{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}.plot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.plot-panel{background:#fff;border:1px solid #d3e3d8;padding:27px 25px 25px;border-radius:14px}.plot-head{display:flex;justify-content:space-between;gap:16px;align-items:start}.plot-head h3{font-size:23px}.plot-head span{font-size:11px;font-weight:800;letter-spacing:.1em;color:#6c8d7c;text-transform:uppercase}.peak{display:flex;flex-direction:column;align-items:end;gap:2px}.peak strong{font:800 29px Manrope,sans-serif;letter-spacing:-.065em;color:#176c59;white-space:nowrap}.peak small{font-size:11px;color:#6d867e}.plot-panel .statement{font-size:13px;color:#46645b;margin:14px 0 5px;font-weight:700}.chart{width:100%;height:auto;display:block;margin:7px auto 9px}.prior{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;background:#eef7ed;color:#1b7062;font-size:12px;font-weight:800;border-radius:4px}.analysis-foot{font-size:12px;color:#5e7870;line-height:1.85;margin:19px 0 0}.result-focus{display:flex;align-items:center;gap:20px;padding:22px 27px;background:#102e30;border-radius:10px;color:#d8efe3;margin-top:20px}.result-focus strong{color:var(--mint);font:700 16px Manrope,sans-serif;letter-spacing:-.02em}.result-focus span{font-size:13px;color:#bed1c6}
+.weights{background:#fff}.weights .head{margin-bottom:25px}.weight-list{border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:#fff}.weight-row{display:grid;grid-template-columns:1fr 1.8fr auto;gap:22px;align-items:center;padding:16px 23px;border-bottom:1px solid var(--stroke)}.weight-row:last-child{border-bottom:0}.weight-row .name{font-weight:800;color:#203d39;font-size:14px}.weight-row .desc{color:#658078;font-size:13px}.weight-row a{font-size:12px;font-weight:800;background:#126a59;color:#fff;padding:8px 13px;border-radius:5px}.weight-row .coming{font-size:12px;color:#81958e}.weights-note{font-size:12px;color:#7a9187;margin-top:14px}
+.citation{background:#0b2228;color:#fff}.citation-inner{display:grid;grid-template-columns:.6fr 1.4fr;gap:52px}.citation h2{font-size:clamp(30px,3.8vw,43px);margin:12px 0}.citation p{color:#a7c3b8;font-size:14px}.bib{background:#142f35;border:1px solid #31504e;border-radius:10px;padding:25px;position:relative;min-width:0}.bib pre{margin:0;color:#cde5d8;font:12px/1.75 ui-monospace,Consolas,monospace;overflow:auto;white-space:pre-wrap;word-break:break-word;padding-top:8px}.bib button{position:absolute;right:12px;top:11px;background:#296b57;border:0;color:#e3fbe9;font-size:11px;border-radius:4px;padding:7px 11px;cursor:pointer}.footer{background:#091a20;color:#89aba0;padding:28px 0}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:12px}.footer a:hover{color:#d4fbd5}
+@media(max-width:980px){.hero-main,.method-copy,.citation-inner{grid-template-columns:1fr}.hero-main{gap:42px}.pair-grid,.summary-strip,.plot-grid,.controller-grid{grid-template-columns:1fr}.controller-grid{gap:12px}.tradeoff-strip{grid-template-columns:1fr;gap:10px}.balance-mark{display:none}.method-copy{gap:30px}.summary-strip{margin-bottom:14px}}
+@media(max-width:650px){.container{width:calc(100% - 36px)}.nav-inner{min-height:65px}.navlinks{display:none}.hero-main{padding:48px 0 62px}.hero h1{font-size:78px}.hero .paper-title{font-size:23px}.hero .sub{font-size:14px}.affiliations-inner{flex-wrap:wrap;justify-content:center;gap:0;padding:17px 0}.affiliations-logos{justify-content:center;flex:1 1 100%;gap:16px}.affiliations small{margin-bottom:0}.affiliations-logos img.canvas{height:75px;width:80px}.affiliations-logos img.microsoft{width:126px}.section{padding:65px 0}.pair-row{grid-template-columns:1fr}.connector{padding:2px 0}.weight-row{grid-template-columns:1fr auto;gap:6px 14px}.weight-row .desc{grid-column:1 / -1;grid-row:2}.weight-row a,.weight-row .coming{grid-column:2;grid-row:1}.footer-inner{flex-direction:column;align-items:start}.result-focus{align-items:start;flex-direction:column;gap:8px}.panel-head,.mining-panel .content,.controller-body,.plot-panel,.summary-card,.trade-box,.control-box{padding-left:18px;padding-right:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* CCTV examples: only the hard-example mining panel is restyled.
+   Images are generated illustrations, not real surveillance recordings. */
+.mining-panel .pair-box{background:#f9fcfa;border-color:#d4e5db;padding:19px 18px 20px}
+.mining-panel .pair-box.negative{background:#fdfcf9}
+.mining-panel .pair-label{margin-bottom:19px}
+.mining-panel .pair-label strong{font-size:19px}
+.mining-panel .pair-label span{color:#678679;font-size:10px;letter-spacing:.07em;text-align:right}
+.mining-panel .pair-box.positive .pair-label strong{color:#07806b}
+.mining-panel .pair-box.negative .pair-label strong{color:#a76240}
+.mining-panel .cctv-row{grid-template-columns:minmax(0,1fr) minmax(70px,auto) minmax(0,1fr);gap:8px;align-items:center}
+.mining-panel .cctv-shot{display:block;min-width:0;width:100%;aspect-ratio:1.03;object-fit:cover;border-radius:10px;background:#cbd4d0}
+.mining-panel .connector{max-width:106px;font-size:12px;line-height:1.5;white-space:normal}
+.mining-panel .same{color:#53bfa0}
+.mining-panel .similar{color:#e3a27d}
+.mining-panel .pair-note{margin-top:17px;font-size:12.5px;line-height:1.8}
+.mining-panel .mining-foot{margin-top:22px;padding-top:19px}
+@media(max-width:650px){
+  .mining-panel .cctv-row{grid-template-columns:minmax(0,1fr) minmax(54px,auto) minmax(0,1fr);gap:6px}
+  .mining-panel .pair-box{padding:16px 12px}
+  .mining-panel .pair-label{flex-wrap:wrap;gap:5px}
+  .mining-panel .pair-label span{text-align:left}
+  .mining-panel .connector{font-size:10px;max-width:75px}
+  .mining-panel .cctv-shot{border-radius:7px}
+}
+</style></head>
+<body>
+<nav><div class="container nav-inner"><a class="brand" href="#top"><img src="assets/miner-mascot.png" width="34" height="34" alt="" aria-hidden="true"/> MINER<b>.</b></a><div class="navlinks"><a href="#video">Video</a><a href="#method">Method</a><a href="#loss">Loss</a><a href="#analysis">Controller</a><a href="#weights">Weights</a><a href="#citation">Citation</a></div><span class="pill">WACV 2027</span></div></nav>
+<main id="top">
+<section class="hero" aria-labelledby="hero-title"><div class="container hero-main"><div class="hero-text"><div class="eyebrow">WACV 2027 &nbsp; / &nbsp; Research paper</div><h1 id="hero-title">MINER<em>.</em></h1><div class="paper-title">Modeling Inter- and Intra-Person Variance for Reidentification</div><p class="sub">Recognize the person, not the clothes. A simple, variance-aware way to learn from look-alike identities and challenging outfit changes.</p><p class="authors">Oron Nir <span>·</span> Eliyahu Strugo <span>·</span> Ariel Shamir</p><div class="buttons"><a class="btn paper" href="https://arxiv.org/abs/2610.28941" target="_blank" rel="noopener noreferrer">Read paper ↗</a><a class="btn code" href="https://github.com/oronnir/MINER" target="_blank" rel="noopener noreferrer">View code ↗</a></div></div><div class="hero-video" id="video"><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/havvVJXpcgY" title="MINER: WACV 2027 video overview" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="video-caption"><span>WATCH THE MINER OVERVIEW</span><a href="https://youtu.be/havvVJXpcgY" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></div></div></div></section>
+<section class="affiliations" aria-label="Research affiliations"><div class="container affiliations-inner"><small>Research affiliations</small><div class="affiliations-logos"><a href="https://canvas-lab.org/" target="_blank" rel="noopener noreferrer" aria-label="CANVAS Lab at Reichman University"><img class="canvas" src="assets/canvas-lab-logo.svg" alt="CANVAS Lab" width="83" height="88" /></a><span class="sep" aria-hidden="true"></span><a href="https://www.microsoft.com/" target="_blank" rel="noopener noreferrer" aria-label="Microsoft"><img class="microsoft" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" width="145" height="29" /></a></div></div></section>
+<section class="section" id="method"><div class="container"><div class="method-copy"><div><div class="eyebrow">01 / The idea</div><h2>Learn from the cases that make ReID fail.</h2></div><div class="abstract"><div class="eyebrow" style="margin-bottom:11px;font-size:10px">Abstract</div><p>Clothes-changing person re-identification must match people across cameras despite drastic outfit changes. MINER focuses training on visually similar <strong>different people</strong> and visually dissimilar <strong>outfits of the same person</strong>.</p><p>It samples these hard cases stochastically at the centroid level, then applies a symmetric multi-positive contrastive loss. The main novelty is an <strong>online Variance Controller</strong> that adapts the number of identities and examples per identity from the estimated balance between discrimination and invariance errors.</p></div></div>
+<article class="panel mining-panel">
+  <div class="panel-head"><span>Hard example mining</span><span>Effective image batch selection for identity representation</span></div>
+  <div class="content">
+    <p class="mining-topline">MINER deliberately fills each batch with two complementary signals: <strong>hard positives</strong> (same person, different outfits) to improve invariance, and <strong>hard negatives</strong> (different people, similar appearance) to improve discrimination.</p>
+    <div class="pair-grid">
+      <section class="pair-box positive" aria-label="Hard positive example">
+        <div class="pair-label"><strong>Hard positive</strong><span>same identity · different clothes</span></div>
+        <div class="pair-row cctv-row">
+          <img class="cctv-shot" src="assets/hard-positive-outfit-a.webp" alt="Synthetic CCTV-style illustration of an adult walking in a black jacket, outfit A of identity 01" loading="lazy" decoding="async" width="300" height="296" />
+          <div class="connector"><span class="same">↔ same person</span></div>
+          <img class="cctv-shot" src="assets/hard-positive-outfit-b.webp" alt="Synthetic CCTV-style illustration of the same adult wearing a light hoodie, outfit B of identity 01" loading="lazy" decoding="async" width="303" height="296" />
+        </div>
+        <p class="pair-note">These cross-outfit matches are intentionally <strong>visually far apart</strong>, so the encoder learns to keep identity stable across clothing changes.</p>
+      </section>
+      <section class="pair-box negative" aria-label="Hard negative example">
+        <div class="pair-label"><strong>Hard negative</strong><span>different identities · similar appearance</span></div>
+        <div class="pair-row cctv-row">
+          <img class="cctv-shot" src="assets/hard-negative-person-a.webp" alt="Synthetic CCTV-style illustration of person 01 wearing dark clothes" loading="lazy" decoding="async" width="305" height="296" />
+          <div class="connector"><span class="similar">≈ look-alike</span></div>
+          <img class="cctv-shot" src="assets/hard-negative-person-b.webp" alt="Synthetic CCTV-style illustration of a different adult wearing a similar dark outfit" loading="lazy" decoding="async" width="269" height="296" />
+        </div>
+        <p class="pair-note">These identities are intentionally <strong>visually close</strong>, so the encoder learns to separate people even when clothing and overall appearance are misleading.</p>
+      </section>
+    </div>
+    <div class="mining-foot"><b>In one sentence:</b> hard positives reduce <strong>invariance error</strong>, hard negatives reduce <strong>discrimination error</strong>, and MINER learns from both at once.</div>
+  </div>
+</article>
+<article class="panel loss-panel" id="loss">
+  <div class="panel-head"><span>Multi-positive contrastive loss</span><span>all valid same-identity query–gallery matches contribute</span></div>
+  <div class="loss-media">
+    <img src="assets/multi_positive_contrastive_loss_infographic.png" alt="Multi-positive contrastive loss illustration with hard-sampled query and gallery examples, showing that each query is matched to multiple positives of the same identity through block-diagonal supervision." width="1664" height="896" loading="lazy" />
+  </div>
+  <div class="loss-note"><strong>Why it matters:</strong> instead of pulling each query toward only one selected positive, MINER treats <em>all</em> valid same-identity gallery images as positives, producing the block-diagonal supervision pattern shown above.</div>
+</article>
+<div class="result-focus"><strong>ASSUMING FIXED GPU MEMORY BUDGET</strong><span>No matter what's your training budget, the GPU memory remains constant throughout the finetune in most cases. How to leverage it effectively is the challenge we address now.</span></div>
+<article class="panel controller-panel">
+  <div class="panel-head"><span>Main novelty · the Variance Controller</span><span>analytic online update</span></div>
+  <div class="controller-body">
+    <p class="controller-intro">Instead of fixing one batch composition for every dataset, MINER estimates two error sources online and allocates the same batch budget to where it matters most.</p>
+    <div class="tradeoff-strip">
+      <div class="trade-box"><strong>Invariance error</strong><small>Too few cross-outfit examples per identity means the model under-learns outfit invariance.</small><code>within-person term  ∝  tr Σ_W / (2n)</code></div>
+      <div class="balance-mark">↔</div>
+      <div class="trade-box"><strong>Discrimination error</strong><small>Too few identities per batch means the model sees too few look-alike negatives.</small><code>between-person term ∝  tr Σ_B / m</code></div>
+    </div>
+    <div class="controller-grid">
+      <div class="control-box">
+        <h3>Estimate</h3>
+        <p>Compute online traces for the <strong>within-person</strong> and <strong>between-person</strong> gradient variance terms from the mined batch.</p>
+        <span class="formula">risk(m,n) = tr Σ_B / m + tr Σ_W / (2n)
+subject to 2mn = B_max</span>
+      </div>
+      <div class="control-box">
+        <h3>Infer the prior</h3>
+        <p>The ratio between the two estimators reveals whether the current dataset prefers more identities or more examples per identity.</p>
+        <span class="formula">ρ = 2 tr Σ_B / tr Σ_W
+ρ small  →  favor n
+ρ large  →  favor m</span>
+      </div>
+      <div class="control-box">
+        <h3>Update analytically</h3>
+        <p>The controller solves for the new allocation in <strong>closed form</strong> under the fixed memory budget.</p>
+        <span class="formula">m* = √(B_max · tr Σ_B / tr Σ_W)
+ n* = √(B_max · tr Σ_W / 4 tr Σ_B)</span>
+        <div class="badges"><span class="badge">No Grid-Search</span><span class="badge">No RL</span><span class="badge">No multi-armed bandit</span><span class="badge">No extra learner</span></div>
+      </div>
+    </div>
+    <div class="controller-note"><b>Why this matters:</b> MINER does not balance these tradeoffs with an additional learning policy. It estimates the two variance terms online and updates the allocation directly, which keeps the controller lightweight, interpretable, and easy to reproduce.</div>
+  </div>
+</article>
+</div></section>
+<section class="section analysis" id="analysis"><div class="container"><div class="headline"><div class="head"><div class="eyebrow">02 / The variance controller</div><h2>Each dataset has its own optimal intra- vs. inter-person prior.</h2><p>Different datasets induce different balances between invariance and discrimination errors. The controller uses the estimated ratio between them to move toward a dataset-specific allocation instead of reusing a universal m:n split.</p></div><p class="explain"><strong>Read the plots:</strong> each point is a measured mAP result from the paper's fixed-allocation sweep. The highlighted point is the best measured allocation for that dataset.</p></div>
+<div class="summary-strip">
+  <article class="summary-card"><strong>Invariance-driven regime</strong><p>When the within-person term dominates, the model benefits from <strong>more samples per identity</strong> to better connect outfit changes.</p><code>smaller ρ  →  larger n</code></article>
+  <article class="summary-card"><strong>Discrimination-driven regime</strong><p>When the between-person term dominates, the model benefits from <strong>more identities per batch</strong> to sharpen separation.</p><code>larger ρ  →  larger m</code></article>
+  <article class="summary-card highlight"><strong>Controller takeaway</strong><p>The controller is analytic: estimate the two variance terms, compute ρ, and update m:n under the batch budget.</p><code>No Grid-Search · No RL · No bandit policy · No extra optimization loop</code></article>
+</div>
+<div class="plot-grid"><article class="plot-panel"><div class="plot-head"><div><span>Dataset 01</span><h3>PRCC</h3></div><div class="peak"><strong>5 : 17</strong><small>m identities : n samples</small></div></div><p class="statement">More examples per person, fewer identities.</p>
+<svg class="chart" viewBox="0 0 520 270" role="img" aria-label="PRCC: measured mAP across nine fixed batch allocations from Table 10. Best at 5 identities per batch.">
+<line x1="46" y1="201.6" x2="506" y2="201.6" stroke="#dde8e3" stroke-width="1"/><text x="36" y="205.6" text-anchor="end" fill="#738a83" font-size="11">67.5</text>
+<line x1="46" y1="129.6" x2="506" y2="129.6" stroke="#dde8e3" stroke-width="1"/><text x="36" y="133.6" text-anchor="end" fill="#738a83" font-size="11">68.5</text>
+<line x1="46" y1="57.6" x2="506" y2="57.6" stroke="#dde8e3" stroke-width="1"/><text x="36" y="61.6" text-anchor="end" fill="#738a83" font-size="11">69.5</text>
+<text x="46" y="11" font-size="11" fill="#617c73">mAP (%)</text>
+<path d="M46.0,122.4 L103.5,50.4 L161.0,43.2 L218.5,86.4 L276.0,100.8 L333.5,122.4 L391.0,151.2 L448.5,194.4 L506.0,194.4" stroke="#1f766b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="46.0" cy="122.4" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="103.5" cy="50.4" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="161.0" cy="43.2" r="15" fill="#b8ebd4" opacity=".75"/>
+<circle cx="161.0" cy="43.2" r="7" fill="#13886f" stroke="#fff" stroke-width="2"/>
+<text x="161.0" y="71.2" fill="#14765e" text-anchor="middle" font-size="12" font-weight="800">BEST · 69.7</text>
+<circle cx="218.5" cy="86.4" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="276.0" cy="100.8" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="333.5" cy="122.4" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="391.0" cy="151.2" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="448.5" cy="194.4" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="506.0" cy="194.4" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<text x="46.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">3:29</text>
+<text x="161.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">5:17</text>
+<text x="276.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">9:9</text>
+<text x="391.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">17:5</text>
+<text x="506.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">29:3</text>
+<text x="276.0" y="265" fill="#617c73" font-size="11" text-anchor="middle">Batch allocation · identities m : samples n per side</text>
+</svg>
+<div class="prior">Estimated variance ratio ρ ≈ 0.31</div></article>
+<article class="plot-panel"><div class="plot-head"><div><span>Dataset 02</span><h3>Celeb-L</h3></div><div class="peak"><strong>21 : 4</strong><small>m identities : n samples</small></div></div><p class="statement">More identities, fewer examples per person.</p>
+<svg class="chart" viewBox="0 0 520 270" role="img" aria-label="Celeb-L: measured mAP across nine fixed batch allocations from Table 10. Best at 21 identities per batch.">
+<line x1="46" y1="205.3" x2="506" y2="205.3" stroke="#dde8e3" stroke-width="1"/><text x="36" y="209.3" text-anchor="end" fill="#738a83" font-size="11">55.0</text>
+<line x1="46" y1="151.8" x2="506" y2="151.8" stroke="#dde8e3" stroke-width="1"/><text x="36" y="155.8" text-anchor="end" fill="#738a83" font-size="11">55.5</text>
+<line x1="46" y1="98.3" x2="506" y2="98.3" stroke="#dde8e3" stroke-width="1"/><text x="36" y="102.3" text-anchor="end" fill="#738a83" font-size="11">56.0</text>
+<line x1="46" y1="44.8" x2="506" y2="44.8" stroke="#dde8e3" stroke-width="1"/><text x="36" y="48.8" text-anchor="end" fill="#738a83" font-size="11">56.5</text>
+<text x="46" y="11" font-size="11" fill="#617c73">mAP (%)</text>
+<path d="M46.0,194.6 L103.5,151.8 L161.0,141.1 L218.5,76.9 L276.0,66.2 L333.5,55.5 L391.0,66.2 L448.5,44.8 L506.0,130.4" stroke="#1f766b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="46.0" cy="194.6" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="103.5" cy="151.8" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="161.0" cy="141.1" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="218.5" cy="76.9" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="276.0" cy="66.2" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="333.5" cy="55.5" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="391.0" cy="66.2" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<circle cx="448.5" cy="44.8" r="15" fill="#b8ebd4" opacity=".75"/>
+<circle cx="448.5" cy="44.8" r="7" fill="#13886f" stroke="#fff" stroke-width="2"/>
+<text x="448.5" y="72.8" fill="#14765e" text-anchor="middle" font-size="12" font-weight="800">BEST · 56.5</text>
+<circle cx="506.0" cy="130.4" r="4.5" fill="#93b8aa" stroke="#fff" stroke-width="2"/>
+<text x="46.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">3:29</text>
+<text x="161.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">5:17</text>
+<text x="276.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">9:9</text>
+<text x="391.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">17:5</text>
+<text x="506.0" y="235" fill="#637c73" font-size="11" text-anchor="middle">29:3</text>
+<text x="276.0" y="265" fill="#617c73" font-size="11" text-anchor="middle">Batch allocation · identities m : samples n per side</text>
+</svg>
+<div class="prior">Estimated variance ratio ρ ≈ 5.34</div></article></div>
+<p class="analysis-foot"><strong>Source:</strong> MINER manuscript, Table 10 (fixed-allocation mAP, nine configurations) and Section 4 (variance-ratio interpretation). Here ρ = 2 tr Σ<sub>B</sub> / tr Σ<sub>W</sub>, and n is the number of query images <em>and</em> gallery images per identity. The plotted scores are measured; lines only connect sampled allocations for readability. Note that the two charts use different mAP scales.</p>
+<div class="result-focus"><strong>Key result</strong><span>The controller moves toward each dataset's preferred regime using online variance estimates and a closed-form update — not with reinforcement learning, multi-armed bandits, or another learned policy.</span></div></div></section>
+<section class="section weights" id="weights"><div class="container"><div class="head"><div class="eyebrow">03 / Reproducibility</div><h2>Model checkpoints.</h2><p>Download pretrained MINER checkpoints when released. The repository contains the method and implementation details.</p></div><div class="weight-list" id="weight-list" aria-label="Available model checkpoints"></div><p class="weights-note">Weights will be linked here when public download URLs are available. Please consult the paper for dataset-specific evaluation protocols.</p></div></section>
+<section class="section citation" id="citation"><div class="container citation-inner"><div><div class="eyebrow" style="color:var(--mint)">04 / Citation</div><h2>Cite MINER.</h2><p>WACV 2027 · Oron Nir, Eliyahu Strugo, Ariel Shamir.</p></div><div class="bib"><button type="button" id="copy" aria-label="Copy BibTeX">Copy BibTeX</button><pre id="bib">@inproceedings{nir2027miner,
+  title     = {MINER: Modeling Inter- and Intra-Person Variance for Reidentification},
+  author    = {Nir, Oron and Strugo, Eliyahu and Shamir, Ariel},
+  booktitle = {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2027}
+}</pre></div></div></section>
+</main><footer class="footer"><div class="container footer-inner"><div>MINER · WACV 2027 · CANVAS Lab / Reichman University &amp; Microsoft</div><div><a href="https://github.com/oronnir/MINER" target="_blank" rel="noopener noreferrer">GitHub ↗</a> &nbsp; · &nbsp; <a href="#top">Back to top ↑</a></div></div></footer>
+<script>
+const MODEL_WEIGHTS = [
+  { name: 'PRCC',       note: 'Clothes-changing person re-identification', file: '', url: '' },
+  { name: 'LTCC',       note: 'Long-term clothes-changing ReID',          file: '', url: '' },
+  { name: 'Celeb-L',    note: 'In-the-wild clothing changes',            file: '', url: '' },
+  { name: 'DeepChange', note: 'Long-term appearance changes',            file: '', url: '' },
+  { name: 'LaST',       note: 'Large-scale long-term re-identification', file: '', url: '' }
+];
+const host=document.getElementById('weight-list');
+for(const model of MODEL_WEIGHTS){
+  const row=document.createElement('div');row.className='weight-row';
+  const name=document.createElement('span');name.className='name';name.textContent=model.name;
+  const desc=document.createElement('span');desc.className='desc';desc.textContent=model.file ? (model.note+' · '+model.file) : model.note;
+  const action=model.url && /^https:\/\//i.test(model.url) ? document.createElement('a') : document.createElement('span');
+  if(action.tagName==='A'){action.href=model.url;action.target='_blank';action.rel='noopener noreferrer';action.textContent='Download ↗';}
+  else {action.className='coming';action.textContent='Coming soon';}
+  row.append(name,desc,action);host.append(row);
+}
+document.getElementById('copy').addEventListener('click',async()=>{
+  const btn=document.getElementById('copy');
+  try{await navigator.clipboard.writeText(document.getElementById('bib').textContent);btn.textContent='Copied ✓';setTimeout(()=>btn.textContent='Copy BibTeX',1500);}catch(e){btn.textContent='Select text to copy';}
+});
+</script></body></html>

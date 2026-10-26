@@ -1,0 +1,9 @@
+torch>=2.0
+torchvision>=0.15
+timm~=1.0
+wandb>=0.17
+tqdm>=4.60
+Pillow>=10.0
+pyyaml>=6.0
+yacs~=0.1.8
+numpy>=1.24
