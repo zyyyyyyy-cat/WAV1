@@ -96,3 +96,9 @@ B0 使用同一组 GPU、batch、LR 和 seed，但配置文件改回 `configs/UA
 服务器日志显示 Epoch 10 已写出 `hard_reference_epoch010.pt`，但随后各 rank 在 `torch.load(..., weights_only=False)` 处报 `TypeError: 'weights_only' is an invalid keyword argument for Unpickler()`。原因是服务器 PyTorch 版本较旧，不支持这个 `torch.load` 参数；该报错不说明困难矩阵生成失败。`WHU/processor/av1_state.py` 现提供 `load_trusted_artifact()`：仅对本训练代码自己生成的可信文件，根据当前 `torch.load` 签名决定是否传入 `weights_only=False`。训练恢复、Epoch 11 前参考加载和 Epoch 10 刚生成参考后的加载均改用它。新增旧版签名模拟测试；目前 6 项单元测试、静态编译通过。尚需在服务器真实版本上复跑验证。
 
 `OUTPUT_DIR` 是日志和训练产物共用的目录：`train_log_*.txt` 是文本日志，`mp_bootstrap.pt` 是训练前 MP 原型，`hard_reference_epoch010.pt` 是 Epoch 10 固定困难参考；成功通过 Epoch 10 参考加载后才保存 `transformer_10.pth` 与 `training_state_epoch010.pt`。配置的常规 checkpoint 周期为 120，最终另保存 `transformer_120.pth` 与 `training_state_epoch120.pt`。当前所贴异常发生在 Epoch 10 checkpoint 保存之前，不能仅凭留下的 `hard_reference_epoch010.pt` 恢复模型、优化器与 Bank 状态。
+
+## 8. 免训练诊断入口（2026-10-26）
+
+新增 `WHU/tools/retrieval_diagnostics.py`、`WHU/tools/diagnose_av1_retrieval.py`、`WHU/tools/README_diagnosis.md` 和 `WHU/tests/test_retrieval_diagnostics.py`。它们只读取已完成训练的 UAD/A1 权重和同一 Query/Gallery 数据；不修改训练循环、损失、采样器、模型或正式 evaluator。诊断入口提取并缓存两模型的 768D pre-BN CLS，逐批核验文件名/PID/相机/模态与稳定图像清单一致，再按官方完整排序与同相机过滤规则复算总体指标。若与指导提供的日志指标不符，则停止归因。
+
+通过后输出逐 Query 排名、AP/INP、最近正负样本与 margin、Rank-1/5/10 四类转变、混合 Gallery 错误来源、九个有向模态组合、平台/相机/原始难度/正样本数量分组和相似度分布近似；有现成中间 checkpoint 对时还生成时间动态。输出字段和命令详见 `WHU/tools/README_diagnosis.md`。新增合成测试将逐 Query 聚合与原 `utils.metrics.eval_func` 比较，并检查 Rank-k 净转变和 AP 差值能重建总体变化；另验证单模态 Gallery 的正负相似度和 margin 仅从该模态候选计算。当前本地无真实权重和数据，尚未得到真实诊断结论。

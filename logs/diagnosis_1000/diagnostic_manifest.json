@@ -1,0 +1,46 @@
+{
+  "UAD": {
+    "checkpoint": "/project/code/WHU_base/WHU_DDP/logs/UAD_1000_DDP/transformer_120.pth",
+    "checkpoint_sha256": "9bb3d547b98f80a685a47e1dee1bb633fdadf910d4319912f054db0f63f0b0e9",
+    "evaluation_manifest_sha256": "5ffea7f0d1a49d8a659e28dcc79aa294df219bc46133262474442f5e048efd28",
+    "query_count": 6405,
+    "gallery_count": 93609,
+    "feature": "pre-BN CLS, L2 normalized, 768D",
+    "query_features": "logs/diagnosis_1000/UAD/query_features.npy",
+    "gallery_features": "logs/diagnosis_1000/UAD/gallery_features.npy"
+  },
+  "A1": {
+    "checkpoint": "/project/code/WHU_base/WHU_MINER/logs/A1_1000_DDP/transformer_120.pth",
+    "checkpoint_sha256": "468d9fecee4ada639a0778d7f2233845e982acdbd3110e0d18ac2ab05d22fc46",
+    "evaluation_manifest_sha256": "5ffea7f0d1a49d8a659e28dcc79aa294df219bc46133262474442f5e048efd28",
+    "query_count": 6405,
+    "gallery_count": 93609,
+    "feature": "pre-BN CLS, L2 normalized, 768D",
+    "query_features": "logs/diagnosis_1000/A1/query_features.npy",
+    "gallery_features": "logs/diagnosis_1000/A1/gallery_features.npy"
+  },
+  "evaluation_manifest_sha256": "5ffea7f0d1a49d8a659e28dcc79aa294df219bc46133262474442f5e048efd28",
+  "query_count": 6405,
+  "gallery_count": 93609,
+  "valid_query_count": 6405,
+  "excluded_query_count": 0,
+  "dataset_root": "/project/code/data/WHU-MARS",
+  "config_file": "/project/code/WHU_base/WHU_MINER/configs/UAD.yml",
+  "preprocessing": {
+    "size_test": [
+      256,
+      128
+    ],
+    "mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "std": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "metrics_reproduced_with_tolerance": 0.0002
+}

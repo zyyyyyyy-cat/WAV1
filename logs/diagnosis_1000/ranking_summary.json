@@ -1,0 +1,1428 @@
+{
+  "UAD": {
+    "valid_queries": 6405,
+    "rank1": 0.297111631537861,
+    "rank5": 0.463231850117096,
+    "rank10": 0.5455113192818111,
+    "mAP": 0.11023368812466394,
+    "mINP": 0.006595151071317458
+  },
+  "A1": {
+    "valid_queries": 6405,
+    "rank1": 0.27650273224043714,
+    "rank5": 0.4426229508196721,
+    "rank10": 0.5252146760343481,
+    "mAP": 0.1060319248712517,
+    "mINP": 0.006435387821141868
+  },
+  "delta": {
+    "rank1": -0.020608899297423877,
+    "rank5": -0.020608899297423877,
+    "rank10": -0.020296643247462942,
+    "mAP": -0.004201763253412247,
+    "mINP": -0.0001597632501755897
+  },
+  "transitions": {
+    "1": {
+      "both_correct": {
+        "count": 1431,
+        "fraction": 0.2234192037470726
+      },
+      "regressed": {
+        "count": 472,
+        "fraction": 0.07369242779078845
+      },
+      "improved": {
+        "count": 340,
+        "fraction": 0.05308352849336456
+      },
+      "both_wrong": {
+        "count": 4162,
+        "fraction": 0.6498048399687744
+      },
+      "net_delta": -0.020608899297423888,
+      "actual_delta": -0.020608899297423877
+    },
+    "5": {
+      "both_correct": {
+        "count": 2488,
+        "fraction": 0.3884465261514442
+      },
+      "regressed": {
+        "count": 479,
+        "fraction": 0.07478532396565184
+      },
+      "improved": {
+        "count": 347,
+        "fraction": 0.054176424668227946
+      },
+      "both_wrong": {
+        "count": 3091,
+        "fraction": 0.482591725214676
+      },
+      "net_delta": -0.020608899297423888,
+      "actual_delta": -0.020608899297423877
+    },
+    "10": {
+      "both_correct": {
+        "count": 3024,
+        "fraction": 0.4721311475409836
+      },
+      "regressed": {
+        "count": 470,
+        "fraction": 0.07338017174082748
+      },
+      "improved": {
+        "count": 340,
+        "fraction": 0.05308352849336456
+      },
+      "both_wrong": {
+        "count": 2571,
+        "fraction": 0.40140515222482437
+      },
+      "net_delta": -0.02029664324746292,
+      "actual_delta": -0.020296643247462942
+    }
+  },
+  "rank_bucket_matrix": [
+    {
+      "uad_bucket": "1",
+      "a1_bucket": "1",
+      "count": 1431
+    },
+    {
+      "uad_bucket": "1",
+      "a1_bucket": "11-20",
+      "count": 33
+    },
+    {
+      "uad_bucket": "1",
+      "a1_bucket": "2-5",
+      "count": 354
+    },
+    {
+      "uad_bucket": "1",
+      "a1_bucket": "21-50",
+      "count": 15
+    },
+    {
+      "uad_bucket": "1",
+      "a1_bucket": "51-100",
+      "count": 2
+    },
+    {
+      "uad_bucket": "1",
+      "a1_bucket": "6-10",
+      "count": 66
+    },
+    {
+      "uad_bucket": "1",
+      "a1_bucket": ">100",
+      "count": 2
+    },
+    {
+      "uad_bucket": "11-20",
+      "a1_bucket": "1",
+      "count": 22
+    },
+    {
+      "uad_bucket": "11-20",
+      "a1_bucket": "11-20",
+      "count": 137
+    },
+    {
+      "uad_bucket": "11-20",
+      "a1_bucket": "2-5",
+      "count": 78
+    },
+    {
+      "uad_bucket": "11-20",
+      "a1_bucket": "21-50",
+      "count": 126
+    },
+    {
+      "uad_bucket": "11-20",
+      "a1_bucket": "51-100",
+      "count": 47
+    },
+    {
+      "uad_bucket": "11-20",
+      "a1_bucket": "6-10",
+      "count": 108
+    },
+    {
+      "uad_bucket": "11-20",
+      "a1_bucket": ">100",
+      "count": 17
+    },
+    {
+      "uad_bucket": "2-5",
+      "a1_bucket": "1",
+      "count": 261
+    },
+    {
+      "uad_bucket": "2-5",
+      "a1_bucket": "11-20",
+      "count": 105
+    },
+    {
+      "uad_bucket": "2-5",
+      "a1_bucket": "2-5",
+      "count": 442
+    },
+    {
+      "uad_bucket": "2-5",
+      "a1_bucket": "21-50",
+      "count": 58
+    },
+    {
+      "uad_bucket": "2-5",
+      "a1_bucket": "51-100",
+      "count": 17
+    },
+    {
+      "uad_bucket": "2-5",
+      "a1_bucket": "6-10",
+      "count": 174
+    },
+    {
+      "uad_bucket": "2-5",
+      "a1_bucket": ">100",
+      "count": 7
+    },
+    {
+      "uad_bucket": "21-50",
+      "a1_bucket": "1",
+      "count": 6
+    },
+    {
+      "uad_bucket": "21-50",
+      "a1_bucket": "11-20",
+      "count": 126
+    },
+    {
+      "uad_bucket": "21-50",
+      "a1_bucket": "2-5",
+      "count": 40
+    },
+    {
+      "uad_bucket": "21-50",
+      "a1_bucket": "21-50",
+      "count": 286
+    },
+    {
+      "uad_bucket": "21-50",
+      "a1_bucket": "51-100",
+      "count": 133
+    },
+    {
+      "uad_bucket": "21-50",
+      "a1_bucket": "6-10",
+      "count": 54
+    },
+    {
+      "uad_bucket": "21-50",
+      "a1_bucket": ">100",
+      "count": 72
+    },
+    {
+      "uad_bucket": "51-100",
+      "a1_bucket": "1",
+      "count": 1
+    },
+    {
+      "uad_bucket": "51-100",
+      "a1_bucket": "11-20",
+      "count": 50
+    },
+    {
+      "uad_bucket": "51-100",
+      "a1_bucket": "2-5",
+      "count": 10
+    },
+    {
+      "uad_bucket": "51-100",
+      "a1_bucket": "21-50",
+      "count": 135
+    },
+    {
+      "uad_bucket": "51-100",
+      "a1_bucket": "51-100",
+      "count": 138
+    },
+    {
+      "uad_bucket": "51-100",
+      "a1_bucket": "6-10",
+      "count": 11
+    },
+    {
+      "uad_bucket": "51-100",
+      "a1_bucket": ">100",
+      "count": 155
+    },
+    {
+      "uad_bucket": "6-10",
+      "a1_bucket": "1",
+      "count": 49
+    },
+    {
+      "uad_bucket": "6-10",
+      "a1_bucket": "11-20",
+      "count": 121
+    },
+    {
+      "uad_bucket": "6-10",
+      "a1_bucket": "2-5",
+      "count": 140
+    },
+    {
+      "uad_bucket": "6-10",
+      "a1_bucket": "21-50",
+      "count": 80
+    },
+    {
+      "uad_bucket": "6-10",
+      "a1_bucket": "51-100",
+      "count": 22
+    },
+    {
+      "uad_bucket": "6-10",
+      "a1_bucket": "6-10",
+      "count": 107
+    },
+    {
+      "uad_bucket": "6-10",
+      "a1_bucket": ">100",
+      "count": 8
+    },
+    {
+      "uad_bucket": ">100",
+      "a1_bucket": "1",
+      "count": 1
+    },
+    {
+      "uad_bucket": ">100",
+      "a1_bucket": "11-20",
+      "count": 16
+    },
+    {
+      "uad_bucket": ">100",
+      "a1_bucket": "21-50",
+      "count": 61
+    },
+    {
+      "uad_bucket": ">100",
+      "a1_bucket": "51-100",
+      "count": 144
+    },
+    {
+      "uad_bucket": ">100",
+      "a1_bucket": "6-10",
+      "count": 9
+    },
+    {
+      "uad_bucket": ">100",
+      "a1_bucket": ">100",
+      "count": 928
+    }
+  ],
+  "rank_k_AP_INP_contributions": {
+    "1": {
+      "both_wrong": {
+        "count": 4162,
+        "fraction": 0.6498048399687744,
+        "mean_delta_AP": -0.000984654776780131,
+        "mean_delta_INP": -0.00016001630783723635,
+        "contribution_to_delta_mAP": -0.0006398334396501024,
+        "contribution_to_delta_mINP": -0.0001039793713065695,
+        "contribution_to_delta_Rank": 0.0
+      },
+      "both_correct": {
+        "count": 1431,
+        "fraction": 0.2234192037470726,
+        "mean_delta_AP": -0.00891558672809558,
+        "mean_delta_INP": -9.56111137787363e-05,
+        "contribution_to_delta_mAP": -0.001991913287729083,
+        "contribution_to_delta_mINP": -2.1361358909816026e-05,
+        "contribution_to_delta_Rank": 0.0
+      },
+      "regressed": {
+        "count": 472,
+        "fraction": 0.07369242779078845,
+        "mean_delta_AP": -0.04712037656254195,
+        "mean_delta_INP": -0.0009181608902506456,
+        "contribution_to_delta_mAP": -0.003472414947309883,
+        "contribution_to_delta_mINP": -6.766150510512174e-05,
+        "contribution_to_delta_Rank": -0.07369242779078845
+      },
+      "improved": {
+        "count": 340,
+        "fraction": 0.05308352849336456,
+        "mean_delta_AP": 0.03583782908317085,
+        "mean_delta_INP": 0.0006261638231164966,
+        "contribution_to_delta_mAP": 0.001902398421276829,
+        "contribution_to_delta_mINP": 3.3238985145918634e-05,
+        "contribution_to_delta_Rank": 0.05308352849336456
+      }
+    },
+    "5": {
+      "improved": {
+        "count": 347,
+        "fraction": 0.054176424668227946,
+        "mean_delta_AP": 0.025151595977347292,
+        "mean_delta_INP": 0.00020811556423688712,
+        "contribution_to_delta_mAP": 0.0013626235447524607,
+        "contribution_to_delta_mINP": 1.127495718816547e-05,
+        "contribution_to_delta_Rank": 0.054176424668227946
+      },
+      "both_wrong": {
+        "count": 3091,
+        "fraction": 0.482591725214676,
+        "mean_delta_AP": -0.00035199274706225003,
+        "mean_delta_INP": -0.00014990290960386753,
+        "contribution_to_delta_mAP": -0.00016986878706782432,
+        "contribution_to_delta_mINP": -7.234190376043006e-05,
+        "contribution_to_delta_Rank": 0.0
+      },
+      "both_correct": {
+        "count": 2488,
+        "fraction": 0.3884465261514442,
+        "mean_delta_AP": -0.00866604036662892,
+        "mean_delta_INP": -0.00014515144919539311,
+        "contribution_to_delta_mAP": -0.0033662932759051917,
+        "contribution_to_delta_mINP": -5.63835762057983e-05,
+        "contribution_to_delta_Rank": 0.0
+      },
+      "regressed": {
+        "count": 479,
+        "fraction": 0.07478532396565184,
+        "mean_delta_AP": -0.027120625112531795,
+        "mean_delta_INP": -0.0005657891836767297,
+        "contribution_to_delta_mAP": -0.002028224735191683,
+        "contribution_to_delta_mINP": -4.231272739752592e-05,
+        "contribution_to_delta_Rank": -0.07478532396565184
+      }
+    },
+    "10": {
+      "both_correct": {
+        "count": 3024,
+        "fraction": 0.4721311475409836,
+        "mean_delta_AP": -0.007527962334392074,
+        "mean_delta_INP": -0.00015456820592647878,
+        "contribution_to_delta_mAP": -0.0035541854955818317,
+        "contribution_to_delta_mINP": -7.29764644374195e-05,
+        "contribution_to_delta_Rank": 0.0
+      },
+      "both_wrong": {
+        "count": 2571,
+        "fraction": 0.40140515222482437,
+        "mean_delta_AP": 6.638990948074513e-05,
+        "mean_delta_INP": -0.00010720081782713103,
+        "contribution_to_delta_mAP": 2.6649251721310807e-05,
+        "contribution_to_delta_mINP": -4.3030960598525196e-05,
+        "contribution_to_delta_Rank": 0.0
+      },
+      "improved": {
+        "count": 340,
+        "fraction": 0.05308352849336456,
+        "mean_delta_AP": 0.017494738654917172,
+        "mean_delta_INP": -9.58818389767264e-05,
+        "contribution_to_delta_mAP": 0.000928682457872262,
+        "contribution_to_delta_mINP": -5.089746331317248e-06,
+        "contribution_to_delta_Rank": 0.05308352849336456
+      },
+      "regressed": {
+        "count": 470,
+        "fraction": 0.07338017174082748,
+        "mean_delta_AP": -0.02184390455074591,
+        "mean_delta_INP": -0.0005269281590794317,
+        "contribution_to_delta_mAP": -0.0016029094674239778,
+        "contribution_to_delta_mINP": -3.866607880832675e-05,
+        "contribution_to_delta_Rank": -0.07338017174082748
+      }
+    }
+  },
+  "modality_pair_summary": [
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.42482435597189694,
+      "a1_rank1_hit": 0.394847775175644,
+      "delta_rank1_hit": -0.029976580796252927,
+      "uad_rank5_hit": 0.594847775175644,
+      "a1_rank5_hit": 0.5807962529274004,
+      "delta_rank5_hit": -0.014051522248243575,
+      "uad_rank10_hit": 0.6716627634660421,
+      "a1_rank10_hit": 0.6651053864168618,
+      "delta_rank10_hit": -0.006557377049180357,
+      "uad_AP": 0.26525583748342924,
+      "a1_AP": 0.2529704877829234,
+      "delta_AP": -0.012285349700505821,
+      "uad_INP": 0.05062201792869012,
+      "a1_INP": 0.04810158167036907,
+      "delta_INP": -0.002520436258321053
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.2716627634660422,
+      "a1_rank1_hit": 0.25245901639344265,
+      "delta_rank1_hit": -0.01920374707259953,
+      "uad_rank5_hit": 0.4519906323185012,
+      "a1_rank5_hit": 0.4346604215456675,
+      "delta_rank5_hit": -0.0173302107728337,
+      "uad_rank10_hit": 0.5362997658079626,
+      "a1_rank10_hit": 0.5138173302107728,
+      "delta_rank10_hit": -0.022482435597189765,
+      "uad_AP": 0.16070764841911264,
+      "a1_AP": 0.1570601845315491,
+      "delta_AP": -0.00364746388756354,
+      "uad_INP": 0.022345580790308118,
+      "a1_INP": 0.022731521974599957,
+      "delta_INP": 0.0003859411842918395
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.07494145199063232,
+      "a1_rank1_hit": 0.07166276346604215,
+      "delta_rank1_hit": -0.003278688524590165,
+      "uad_rank5_hit": 0.17470725995316158,
+      "a1_rank5_hit": 0.1756440281030445,
+      "delta_rank5_hit": 0.0009367681498829161,
+      "uad_rank10_hit": 0.2323185011709602,
+      "a1_rank10_hit": 0.23278688524590163,
+      "delta_rank10_hit": 0.0004683840749414303,
+      "uad_AP": 0.05612048011747815,
+      "a1_AP": 0.056657455805155514,
+      "delta_AP": 0.0005369756876773615,
+      "uad_INP": 0.010896937929848196,
+      "a1_INP": 0.011004366508965774,
+      "delta_INP": 0.00010742857911757824
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "Mixed",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.40046838407494145,
+      "a1_rank1_hit": 0.3807962529274005,
+      "delta_rank1_hit": -0.01967213114754096,
+      "uad_rank5_hit": 0.5845433255269321,
+      "a1_rank5_hit": 0.5536299765807963,
+      "delta_rank5_hit": -0.030913348946135843,
+      "uad_rank10_hit": 0.6566744730679157,
+      "a1_rank10_hit": 0.6309133489461358,
+      "delta_rank10_hit": -0.025761124121779888,
+      "uad_AP": 0.1472602092260603,
+      "a1_AP": 0.1409789320268422,
+      "delta_AP": -0.006281277199218116,
+      "uad_INP": 0.006802002184576435,
+      "a1_INP": 0.006761481874532266,
+      "delta_INP": -4.052031004416878e-05
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.24543325526932083,
+      "a1_rank1_hit": 0.2215456674473068,
+      "delta_rank1_hit": -0.023887587822014028,
+      "uad_rank5_hit": 0.40702576112412175,
+      "a1_rank5_hit": 0.3911007025761124,
+      "delta_rank5_hit": -0.015925058548009352,
+      "uad_rank10_hit": 0.4894613583138173,
+      "a1_rank10_hit": 0.4866510538641686,
+      "delta_rank10_hit": -0.002810304449648693,
+      "uad_AP": 0.15655408888556754,
+      "a1_AP": 0.15412476827676497,
+      "delta_AP": -0.0024293206088025765,
+      "uad_INP": 0.0282365876352056,
+      "a1_INP": 0.030495935776372513,
+      "delta_INP": 0.002259348141166913
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.2796252927400468,
+      "a1_rank1_hit": 0.25807962529274003,
+      "delta_rank1_hit": -0.021545667447306793,
+      "uad_rank5_hit": 0.4412177985948478,
+      "a1_rank5_hit": 0.4262295081967213,
+      "delta_rank5_hit": -0.014988290398126491,
+      "uad_rank10_hit": 0.5391100702576113,
+      "a1_rank10_hit": 0.522248243559719,
+      "delta_rank10_hit": -0.016861826697892268,
+      "uad_AP": 0.1683114677393759,
+      "a1_AP": 0.1607533071600822,
+      "delta_AP": -0.007558160579293677,
+      "uad_INP": 0.024047547959192235,
+      "a1_INP": 0.024547251237933256,
+      "delta_INP": 0.0004997032787410205
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.06370023419203748,
+      "a1_rank1_hit": 0.06744730679156909,
+      "delta_rank1_hit": 0.003747072599531609,
+      "uad_rank5_hit": 0.1540983606557377,
+      "a1_rank5_hit": 0.15128805620608898,
+      "delta_rank5_hit": -0.0028103044496487206,
+      "uad_rank10_hit": 0.2206088992974239,
+      "a1_rank10_hit": 0.20655737704918034,
+      "delta_rank10_hit": -0.014051522248243548,
+      "uad_AP": 0.05247372080325929,
+      "a1_AP": 0.053297144597763836,
+      "delta_AP": 0.0008234237945045492,
+      "uad_INP": 0.010444323072525179,
+      "a1_INP": 0.010893105825100433,
+      "delta_INP": 0.00044878275257525385
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "Mixed",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.29180327868852457,
+      "a1_rank1_hit": 0.25901639344262295,
+      "delta_rank1_hit": -0.03278688524590162,
+      "uad_rank5_hit": 0.453864168618267,
+      "a1_rank5_hit": 0.4346604215456675,
+      "delta_rank5_hit": -0.01920374707259953,
+      "uad_rank10_hit": 0.5442622950819672,
+      "a1_rank10_hit": 0.5138173302107728,
+      "delta_rank10_hit": -0.030444964871194413,
+      "uad_AP": 0.11281688228809525,
+      "a1_AP": 0.10918836347528477,
+      "delta_AP": -0.003628518812810483,
+      "uad_INP": 0.006517401999105275,
+      "a1_INP": 0.006333633164816838,
+      "delta_INP": -0.0001837688342884369
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.07400468384074942,
+      "a1_rank1_hit": 0.08384074941451991,
+      "delta_rank1_hit": 0.009836065573770494,
+      "uad_rank5_hit": 0.17283372365339578,
+      "a1_rank5_hit": 0.16721311475409836,
+      "delta_rank5_hit": -0.0056206088992974135,
+      "uad_rank10_hit": 0.234192037470726,
+      "a1_rank10_hit": 0.22014051522248243,
+      "delta_rank10_hit": -0.014051522248243575,
+      "uad_AP": 0.05848247115257804,
+      "a1_AP": 0.05866878088888966,
+      "delta_AP": 0.0001863097363116184,
+      "uad_INP": 0.013009074807481563,
+      "a1_INP": 0.013623751632490359,
+      "delta_INP": 0.0006146768250087954
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "NIR",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.07915690866510539,
+      "a1_rank1_hit": 0.07166276346604215,
+      "delta_rank1_hit": -0.007494145199063232,
+      "uad_rank5_hit": 0.16440281030444964,
+      "a1_rank5_hit": 0.16018735362997658,
+      "delta_rank5_hit": -0.004215456674473067,
+      "uad_rank10_hit": 0.2224824355971897,
+      "a1_rank10_hit": 0.2206088992974239,
+      "delta_rank10_hit": -0.0018735362997658045,
+      "uad_AP": 0.05247433380321102,
+      "a1_AP": 0.05128786806220893,
+      "delta_AP": -0.0011864657410020837,
+      "uad_INP": 0.010017763037106367,
+      "a1_INP": 0.009664266065668578,
+      "delta_INP": -0.0003534969714377896
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.20749414519906323,
+      "a1_rank1_hit": 0.19578454332552694,
+      "delta_rank1_hit": -0.011709601873536285,
+      "uad_rank5_hit": 0.3611241217798595,
+      "a1_rank5_hit": 0.36018735362997656,
+      "delta_rank5_hit": -0.0009367681498829161,
+      "uad_rank10_hit": 0.44730679156908665,
+      "a1_rank10_hit": 0.45011709601873534,
+      "delta_rank10_hit": 0.002810304449648693,
+      "uad_AP": 0.1352266649152129,
+      "a1_AP": 0.12798704017949458,
+      "delta_AP": -0.00723962473571832,
+      "uad_INP": 0.022833078107110133,
+      "a1_INP": 0.022988041237530003,
+      "delta_INP": 0.00015496313041987037
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "Mixed",
+      "valid_query_count": 2135,
+      "uad_rank1_hit": 0.1990632318501171,
+      "a1_rank1_hit": 0.18969555035128804,
+      "delta_rank1_hit": -0.00936768149882905,
+      "uad_rank5_hit": 0.351288056206089,
+      "a1_rank5_hit": 0.3395784543325527,
+      "delta_rank5_hit": -0.011709601873536313,
+      "uad_rank10_hit": 0.43559718969555034,
+      "a1_rank10_hit": 0.4309133489461358,
+      "delta_rank10_hit": -0.004683840749414525,
+      "uad_AP": 0.07062397285983624,
+      "a1_AP": 0.06792847911162811,
+      "delta_AP": -0.0026954937482081276,
+      "uad_INP": 0.006466049030270662,
+      "a1_INP": 0.0062110484240765025,
+      "delta_INP": -0.0002550006061941591
+    }
+  ],
+  "crossed_top10_outward": 470,
+  "crossed_top10_inward": 340,
+  "regressed_at_rank1_5_10": 52,
+  "rank1_regressed_similarity_signs": [
+    {
+      "positive_change": "positive_decreased",
+      "negative_change": "negative_increased",
+      "count": 196
+    },
+    {
+      "positive_change": "positive_decreased",
+      "negative_change": "negative_not_increased",
+      "count": 9
+    },
+    {
+      "positive_change": "positive_not_decreased",
+      "negative_change": "negative_increased",
+      "count": 267
+    }
+  ],
+  "rank1_regressed_wrong_sources": [
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 1
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 4
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 8
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 8
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 6
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 5
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 11
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 12
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 11
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 9
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 7
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 8
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 1
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 5
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 1
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 3
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 3
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 9
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 11
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 9
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 4
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 7
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 1
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 5
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 4
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 2
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 1
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 2
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 5
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 5
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 3
+    },
+    {
+      "query_modality": "NIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 1
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 2
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 2
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 2
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 3
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 8
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 3
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 5
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 13
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 9
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 3
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 2
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 7
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 4
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 8
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 4
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 8
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 5
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 20
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 12
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 18
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 4
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 1
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 1
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 3
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 3
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 4
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 1
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 1
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 2
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 8
+    },
+    {
+      "query_modality": "RGB",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 4
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 1
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 3
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 3
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 4
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "NIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 1
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 3
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 4
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 3
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 1
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 2
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 2
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 1
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "RGB",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 3
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 1
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 5
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 6
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 2
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Aerial",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 1
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "5",
+      "count": 8
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Aerial",
+      "gallery_camera": "6",
+      "count": 3
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "0",
+      "count": 17
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "1",
+      "count": 28
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "2",
+      "count": 18
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "3",
+      "count": 2
+    },
+    {
+      "query_modality": "TIR",
+      "gallery_modality": "TIR",
+      "query_platform": "Ground",
+      "gallery_platform": "Ground",
+      "gallery_camera": "4",
+      "count": 8
+    }
+  ],
+  "rank1_regressed_single_gallery_correct_but_mixed_wrong": {
+    "NIR": 89,
+    "any_single_gallery_correct": 189,
+    "RGB": 95,
+    "TIR": 33
+  },
+  "excluded_queries": 0,
+  "protocol": {
+    "same_camera_gallery_excluded": true,
+    "full_gallery_sort": true,
+    "reranking": false,
+    "tta": false,
+    "feature": "pre-BN CLS 768D L2",
+    "distance": "squared Euclidean, official torch.argsort"
+  }
+}
